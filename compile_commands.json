@@ -1,0 +1,82 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-Iinclude/core",
+      "-Iinclude/raylib",
+      "-Iinclude/world",
+      "-std=c++17",
+      "-c",
+      "-o",
+      "bin/src/world/mapLayer.o",
+      "src/world/mapLayer.cpp"
+    ],
+    "directory": "/home/ok/Code/RandomSoilGenerator",
+    "file": "/home/ok/Code/RandomSoilGenerator/src/world/mapLayer.cpp",
+    "output": "/home/ok/Code/RandomSoilGenerator/bin/src/world/mapLayer.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-Iinclude/core",
+      "-Iinclude/raylib",
+      "-Iinclude/world",
+      "-std=c++17",
+      "-c",
+      "-o",
+      "bin/src/world/tile.o",
+      "src/world/tile.cpp"
+    ],
+    "directory": "/home/ok/Code/RandomSoilGenerator",
+    "file": "/home/ok/Code/RandomSoilGenerator/src/world/tile.cpp",
+    "output": "/home/ok/Code/RandomSoilGenerator/bin/src/world/tile.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-Iinclude/core",
+      "-Iinclude/raylib",
+      "-Iinclude/world",
+      "-std=c++17",
+      "-c",
+      "-o",
+      "bin/src/world/tileMap.o",
+      "src/world/tileMap.cpp"
+    ],
+    "directory": "/home/ok/Code/RandomSoilGenerator",
+    "file": "/home/ok/Code/RandomSoilGenerator/src/world/tileMap.cpp",
+    "output": "/home/ok/Code/RandomSoilGenerator/bin/src/world/tileMap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-Iinclude/core",
+      "-Iinclude/raylib",
+      "-Iinclude/world",
+      "-std=c++17",
+      "-c",
+      "-o",
+      "bin/src/world/tileSet.o",
+      "src/world/tileSet.cpp"
+    ],
+    "directory": "/home/ok/Code/RandomSoilGenerator",
+    "file": "/home/ok/Code/RandomSoilGenerator/src/world/tileSet.cpp",
+    "output": "/home/ok/Code/RandomSoilGenerator/bin/src/world/tileSet.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-Iinclude/core",
+      "-Iinclude/raylib",
+      "-Iinclude/world",
+      "-std=c++17",
+      "-c",
+      "-o",
+      "bin/main.o",
+      "main.cpp"
+    ],
+    "directory": "/home/ok/Code/RandomSoilGenerator",
+    "file": "/home/ok/Code/RandomSoilGenerator/main.cpp",
+    "output": "/home/ok/Code/RandomSoilGenerator/bin/main.o"
+  }
+]
