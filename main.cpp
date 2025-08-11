@@ -1,15 +1,14 @@
 #include "./include/raylib/raylib.h"
 #include "./include/core/settings.h"
 #include "./include/core/colors.h"
+#include "include/core/camera.h"
 #include "include/world/tileMap.h"
-#include "include/world/tileSet.h"
 
 class Game {
   
 private:
 
   TileMap tileMap;
-  TileSet tileSet;
 
 public:
 
@@ -18,16 +17,16 @@ public:
 
   void Init() {
     tileMap.Init();
-    tileSet.Init("./assets/Tiled/json/Default.json");
   }
 
   void Draw() {
     tileMap.Draw();
-    tileSet.DrawTile(1, 0, 0);
   }
 };
 
 int main (int argc, char *argv[]) {
+
+  InitCamera();
   
   InitWindow(BLOCK * BOARD, BLOCK * BOARD, "Soil thing");
   SetTargetFPS(60);
@@ -41,9 +40,13 @@ int main (int argc, char *argv[]) {
 
     BeginDrawing();
 
+    ClearBackground(BACKGROUND);
+
+    BeginMode2D(camera);
+
     game.Draw();
 
-    ClearBackground(GRUVBOX_DARK0);
+    EndMode2D();
 
     EndDrawing();
     

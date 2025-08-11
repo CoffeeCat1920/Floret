@@ -36,13 +36,12 @@ void TileMap::Init() {
 void TileMap::Draw() {
   const std::vector<std::vector<int>> mapLayer = layers[0]->Grid();
 
-  for (int x = 0; x < tileSet.GetTileHeight(); ++x) {
-    for (int y = 0; y < tileSet.GetTileHeight(); ++y) {
+  for (int x = 0; x < mapHeight; ++x) {
+    for (int y = 0; y < mapWidth; ++y) {
       int tileId = mapLayer[x][y];
 
       if (tileId > 0) {
         tileSet.DrawTile(tileId - 1, x, y);
-        std::cout << "INFO: Drawing Tile of Id [" << tileId - 1 << "]" << "\n"; 
       }
     }
   }

@@ -1,5 +1,6 @@
 #include "../../include/world/tileSet.h"
 #include "../../include/core/settings.h"
+#include "../../include/core/camera.h"
 #include "../../include/raylib/raylib.h"
 #include "../../include/nlohmann/json_utils.hpp"
 #include <cstdint>
@@ -77,8 +78,16 @@ void TileSet::DrawTile(uint16_t tileId, int x, int y) {
     return;
   }
 
-  float positionX = (x - y) * (BLOCK_X / 2.0f) - (BLOCK_X / 2.0f) + (BLOCK * BOARD/ 2.0f);
-  float positionY = (x + y) * (BLOCK_Y / 2.0f) + (BLOCK * BOARD/ 4.0f);
+  float positionX = (x - y) * (BLOCK_X / 2.0f) - (BLOCK_X / 2.0f) + (BLOCK * BOARD/ 4.0f);
+  float positionY = (x + y) * (BLOCK_Y / 2.0f) + (BLOCK * BOARD/ 6.0f);
+
+  Vector2 mouseWorldPos = GetScreenToWorld2D(GetMousePosition(), camera);
+
+  Rectangle rec = Rectangle{positionX + (float)tileWidth/2 - 4, positionY + 4, (float)tileWidth - 24, (float)tileHeight - 24};
+  if (CheckCollisionPointRec(mouseWorldPos, rec)) {
+    positionY -= 6;
+  }
 
   DrawTextureRec(atlasTexture, texturesRecs[tileId], Vector2{positionX, positionY}, WHITE);
+  // DrawRectangleLinesEx(rec, 1.0, BLACK);
 }
