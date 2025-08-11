@@ -10,7 +10,7 @@ TileMap::TileMap(std::string dataPath) :
   
 void TileMap::Init() {
 
-  tileSet.Init("./assets/Tiled/json/TileSet.json");
+  tileSet.Init("./assets/Tiled/json/Default.json");
 
   std::ifstream file(dataPath);
   if (!file.is_open()) {
@@ -36,12 +36,13 @@ void TileMap::Init() {
 void TileMap::Draw() {
   const std::vector<std::vector<int>> mapLayer = layers[0]->Grid();
 
-  for (int x = 0; x < 90; ++x) {
-    for (int y = 0; y < 90; ++y) {
+  for (int x = 0; x < tileSet.GetTileHeight(); ++x) {
+    for (int y = 0; y < tileSet.GetTileHeight(); ++y) {
       int tileId = mapLayer[x][y];
 
       if (tileId > 0) {
         tileSet.DrawTile(tileId - 1, x, y);
+        std::cout << "INFO: Drawing Tile of Id [" << tileId - 1 << "]" << "\n"; 
       }
     }
   }

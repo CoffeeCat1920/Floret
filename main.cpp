@@ -2,24 +2,28 @@
 #include "./include/core/settings.h"
 #include "./include/core/colors.h"
 #include "include/world/tileMap.h"
+#include "include/world/tileSet.h"
 
 class Game {
   
 private:
 
   TileMap tileMap;
+  TileSet tileSet;
 
 public:
 
   Game() : 
-    tileMap("./assets/Tiled/json/Normal.json") {}
+    tileMap("./assets/Tiled/json/Map.json") {}
 
   void Init() {
     tileMap.Init();
+    tileSet.Init("./assets/Tiled/json/Default.json");
   }
 
   void Draw() {
     tileMap.Draw();
+    tileSet.DrawTile(1, 0, 0);
   }
 };
 

@@ -55,6 +55,7 @@ void TileSet::Init(std::string dataPath) {
     if (id >= 0 && id < tileCount) {
       tiles[id] = std::make_shared<Tile>(tileName);
     }
+    std::cout << "Loaded tile named: " << tileName << "\n";
   }
   
   atlasPath = atlasPath.replace(0, 5, "./assets");
@@ -67,8 +68,7 @@ void TileSet::Init(std::string dataPath) {
     }
   }
 
-  std::cout << "INFO: TILESET [" << atlasPath << "] Tileset loaded successfully" << std::endl; 
-
+  std::cout << "INFO: TILESET [" << atlasPath << "] Tileset loaded successfully" << "\n"; 
 }
 
 void TileSet::DrawTile(uint16_t tileId, int x, int y) {
