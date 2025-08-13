@@ -21,6 +21,10 @@ MapLayer::MapLayer(const json& layerData) {
 
 }
 
+void MapLayer::ChangeTile(int tileId, int x, int y) {
+  tileGrid[x][y] = tileId; 
+}
+
 std::string MapLayer::Name() { return name; }
 int MapLayer::Id() { return id; }
 int MapLayer::Width() { return layerWidth; } 

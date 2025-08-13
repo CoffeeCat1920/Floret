@@ -18,6 +18,8 @@ public:
   void Init() {
     tileMap.Init();
   }
+  
+  void Update() {}
 
   void Draw() {
     tileMap.Draw();
@@ -37,6 +39,8 @@ int main (int argc, char *argv[]) {
 
   while ( !WindowShouldClose() )
   { 
+
+    game.Update();
 
     BeginDrawing();
 

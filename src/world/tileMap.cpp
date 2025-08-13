@@ -1,5 +1,6 @@
 #include "../../include/world/tileMap.h"
 #include "../../include/nlohmann/json_utils.hpp"
+#include "raylib.h"
 #include <fstream>
 #include <iostream>
 #include <memory>
@@ -34,15 +35,20 @@ void TileMap::Init() {
 }
 
 void TileMap::Draw() {
-  const std::vector<std::vector<int>> mapLayer = layers[0]->Grid();
+  std::shared_ptr<MapLayer> layer = layers[0];
+  const std::vector<std::vector<int>> tileGrid = layer->Grid();
 
   for (int x = 0; x < mapHeight; ++x) {
     for (int y = 0; y < mapWidth; ++y) {
-      int tileId = mapLayer[x][y];
-
-      if (tileId > 0) {
-        tileSet.DrawTile(tileId - 1, x, y);
+      int tileId = tileGrid[x][y];
+      tileSet.DrawTile(tileId, x, y);
+      if (tileSet.IsClickedOnRight(tileId, x, y)) {
+        layer->ChangeTile(0, x, y); 
+      }
+      else if (tileSet.IsClickedOnLeft(tileId, x, y)) {
+        layer->ChangeTile(1, x, y); 
       }
     }
   }
+
 }

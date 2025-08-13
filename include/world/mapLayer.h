@@ -24,10 +24,12 @@ public:
   MapLayer(const json& layerData);
   
   std::string Name(); 
+  
+  void ChangeTile(int tileId, int x, int y);
+
   int Id();
   int Width(); 
   int Height();
 
   const std::vector<std::vector<int>>& Grid();
-
 };
